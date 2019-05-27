@@ -10,7 +10,7 @@ import android.os.Bundle;
 
 import java.util.UUID;
 
-public abstract class CrimeActivity extends SingleFragmentActivity {
+public class CrimeActivity extends SingleFragmentActivity {
 
     //添加了一个通用超类，把重复代码封装为抽象类
     /*@Override
@@ -34,7 +34,7 @@ public abstract class CrimeActivity extends SingleFragmentActivity {
     }
     */
 
-    public static final String EXTRA_CRIME_ID =
+    private static final String EXTRA_CRIME_ID =
             "android.bignerdranch.crimeactivity.crime_id";
 
 
@@ -46,6 +46,9 @@ public abstract class CrimeActivity extends SingleFragmentActivity {
 
     @Override
     protected Fragment createFragment(){
-        return new CrimeFragment();
+        //return new CrimeFragment();
+        UUID crimeId = (UUID) getIntent()
+                .getSerializableExtra(EXTRA_CRIME_ID);
+        return CrimeFragment.newInstance(crimeId);
     }
 }
