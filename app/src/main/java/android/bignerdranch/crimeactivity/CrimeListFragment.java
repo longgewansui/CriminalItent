@@ -79,11 +79,17 @@ public class CrimeListFragment extends Fragment {
 
         @Override
         public void onClick(View view) {
-           /* Toast.makeText(getActivity(),
+            /* Toast.makeText(getActivity(),
             mCrime.getTitle() + " clicked!",Toast.LENGTH_SHORT).show();*/
-           //使用启动Activity来替代toast消息处理代码
+            //使用启动Activity来替代toast消息处理代码
+
             //Intent intent = new Intent(getActivity(),CrimeActivity.class);
-            Intent intent = CrimeActivity.newIntent(getActivity(), mCrime.getId());
+            //因为需要传递信息，所以进行了替换
+
+            //Intent intent = CrimeActivity.newIntent(getActivity(), mCrime.getId());
+            //因为需要左右滑动进行换页，所以活动已经由CrimeActivity变成了CrimePagerActivity
+
+            Intent intent = CrimePagerActivity.newIntent(getActivity(), mCrime.getId());
             startActivity(intent);
         }
     }

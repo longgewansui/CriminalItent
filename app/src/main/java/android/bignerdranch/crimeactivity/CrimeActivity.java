@@ -1,5 +1,7 @@
 package android.bignerdranch.crimeactivity;
 
+//因为需要进行左右滑动换页，所以用CrimePagerActivity来代替CrimeActivity活动，此活动在项目中已经没有意思，不运行
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
